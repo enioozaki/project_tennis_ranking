@@ -59,7 +59,7 @@ Type ls to ensure that you are inside the directory that contains application.py
 
 Now type `python database_setup.py` to initialize the database.
 
-Type `python application.py` to run the Flask web server. In your browser visit http://localhost:8000 to view the tennis ranking app. You should be able to view, add, edit, and delete clubs and respective associates.
+Type `python application.py` to run the Flask web server. In your browser visit `http://localhost:8000` to view the tennis ranking app. You should be able to view, add, edit, and delete clubs and respective associates.
 
 ### Access JSON endpoint
 Visit  `http://localhost:8000/club/JSON` to get the JSON for all registered clubs.

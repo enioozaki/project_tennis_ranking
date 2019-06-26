@@ -51,15 +51,17 @@ Unzip the file tennis_ranking.zip to the vagrant directory
 Using the terminal, type `vagrant up` to launch your virtual machine.
 
 ## Run the Tennis Ranking App
-Once it is up and running, type `vagrant ssh`. This will log your terminal into the virtual machine, and you'll get a Linux shell prompt. When you want to log out, type exit at the shell prompt. To turn the virtual machine off (without deleting anything), type vagrant halt. If you do this, you'll need to run vagrant up again before you can log into it.
+Now that you have Vagrant up and running type `vagrant ssh` to log into your VM. Change directory to the /vagrant directory by typing `cd /vagrant`. This will take you to the shared folder between your virtual machine and host machine.
 
-Now that you have Vagrant up and running type vagrant ssh to log into your VM. Change directory to the /vagrant directory by typing `cd /vagrant`. This will take you to the shared folder between your virtual machine and host machine.
+Then change directory to the catalog directory by typing `cd catalog`.
 
 Type ls to ensure that you are inside the directory that contains application.py and two directories named 'templates' and 'static'
 
 Now type `python database_setup.py` to initialize the database.
 
 Type `python application.py` to run the Flask web server. In your browser visit `http://localhost:8000` to view the tennis ranking app. You should be able to view, add, edit, and delete clubs and respective associates.
+
+When you want to log out, type exit at the shell prompt. To turn the virtual machine off (without deleting anything), type vagrant halt. If you do this, you'll need to run vagrant up again before you can log into it.
 
 ### Access JSON endpoint
 Visit  `http://localhost:8000/club/JSON` to get the JSON for all registered clubs.

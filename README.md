@@ -44,8 +44,7 @@ Windows: Use the Git Bash program (installed with Git) to get a Unix-style termi
 Other systems: Use your favorite terminal program.
 
 #### Copy project
-
-Unzip the file tennis_ranking.zip to the vagrant directory 
+Create a directory called `catalog` and change directory to it `cd catalog`. Then unzip the file `tennis_ranking.zip` to this directory 
 
 #### Run the virtual machine
 Using the terminal, type `vagrant up` to launch your virtual machine.

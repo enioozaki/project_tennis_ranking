@@ -1,0 +1,108 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>{{ club.name }}
+			<figure class="creator">
+				<!--
+				<img src="{{ url_for('static', filename='blank_user.gif') }}">
+				<figcaption>Menu creator's name goes here</figcaption>
+				-->
+				<img src="{{ creator.picture}}">
+				<figcaption>{{ creator.name }}</figcaption>
+			</figure>
+			</h1>
+
+		</div>
+	</div>
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<a href="{{url_for('editClub', club_id = club.id )}}">
+				<button class="btn btn-default" id="new-associate">
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Editar Clube
+				</button>
+			</a>
+			<a href="{{url_for('newAssociate', club_id = club.id )}}">
+				<button class="btn btn-default" id="new-associate">
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>Adicionar Associado
+				</button>
+			</a>
+						<a href="{{url_for('deleteClub', club_id = club.id )}}">
+				<button class="btn btn-default delete" id="delete-club">
+					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Remover Clube
+				</button>
+			</a>
+		</div>
+		<div class="col-md-7"></div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-sm-3" style="text-align:center">
+			<h2>Nome</h2>
+		</div>
+		<div class="col-sm-2" style="text-align:center">
+			<h2>Sexo</h2>
+		</div>
+		<div class="col-sm-1" style="text-align:center">
+			<h2>Classe</h2>
+		</div>
+		<div class="col-sm-1" style="text-align:center">
+			<h2>Ranking</h2>
+		</div>
+		<div class="col-sm-1" style="text-align:center">
+			<h2>Pontos</h2>
+		</div>
+		<div class="col-sm-2" style="text-align:center">
+			<h2>Dt Nascimento</h2>
+		</div>
+	</div>
+
+	{% if items !=[] %}	
+			{% for i in items %}
+			<div class="row">
+				<div class="col-md-3" style="text-align:left">
+					<h3>{{i.name}}</h3>
+				</div>
+				<div class="col-md-2" style="text-align:center">
+					<h3>{{i.gender}}</h3>
+				</div>
+				<div class="col-md-1" style="text-align:center">
+					<h3>{{i.classe}}</h3>
+				</div>
+				<div class="col-md-1" style="text-align:center">
+					<h3>{{i.ranking}}</h3>
+				</div>
+				<div class="col-md-1" style="text-align:center">
+					<h3>{{i.points}}</h3>
+				</div>
+				<div class="col-md-2" style="text-align:center">
+					<h3>{{i.birthDate}}</h3>
+				</div>
+				<div class="col-md-2 associate-edit" style="vertical-align: bottom">
+					<a href='{{url_for('editAssociate', club_id = club.id, associate_id=i.id ) }}'>Editar</a> | 
+					<a href='{{url_for('deleteAssociate', club_id = club.id, associate_id=i.id ) }}'>Remover</a>
+				</div>
+			</div>
+			{% endfor %}
+	{% endif %}
+{% endblock %}

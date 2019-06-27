@@ -56,8 +56,6 @@ Then change directory to the catalog directory by typing `cd catalog`.
 
 Type ls to ensure that you are inside the directory that contains application.py and two directories named 'templates' and 'static'
 
-Now type `python database_setup.py` to initialize the database.
-
 Type `python application.py` to run the Flask web server. In your browser visit `http://localhost:8000` to view the tennis ranking app. You should be able to view, add, edit, and delete clubs and respective associates.
 
 When you want to log out, type exit at the shell prompt. To turn the virtual machine off (without deleting anything), type vagrant halt. If you do this, you'll need to run vagrant up again before you can log into it.
